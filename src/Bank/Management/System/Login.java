@@ -1,9 +1,11 @@
 package Bank.Management.System;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class Login extends JFrame {
+public class Login extends JFrame  implements ActionListener{
 
     JLabel label1, label2, label3;
     JTextField cardText;
@@ -67,15 +69,26 @@ public class Login extends JFrame {
         buttonSingUp.setForeground(Color.white);
         buttonSingUp.setFont(new Font("Arial",Font.BOLD,20));
         buttonSingUp.setBounds(250, 300,150,50);
+        buttonSingUp.addActionListener(this);
         add(buttonSingUp);
         
-        // sign in button 
+        // Clear button 
         buttonClear = new JButton("Clear ");
         buttonClear.setBackground(Color.BLACK);
         buttonClear.setForeground(Color.white);
         buttonClear.setFont(new Font("Arial",Font.BOLD,20));
         buttonClear.setBounds(450,300,150,50);
+        buttonClear.addActionListener(this);
         add(buttonClear);
+        
+         // sign in button 
+        buttonSignIn = new JButton("Sign In ");
+        buttonSignIn.setBackground(Color.BLACK);
+        buttonSignIn.setForeground(Color.white);
+        buttonSignIn.setFont(new Font("Arial",Font.BOLD,20));
+        buttonSignIn.setBounds(350,370,150,50);
+        buttonSignIn.addActionListener(this);
+        add(buttonSignIn);
          
         // this is background
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
@@ -93,8 +106,27 @@ public class Login extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
-
+    // override actionPerformed Method 
+    @Override 
+    public void actionPerformed(ActionEvent e){
+        try{
+            if(e.getSource()==buttonSignIn){
+                JOptionPane.showMessageDialog(null , "Sign in button clicked");
+            }
+            else if (e.getSource()==buttonClear){
+                JOptionPane.showMessageDialog(null,"Clear button clicked ");
+            }
+            else if (e.getSource()==buttonSingUp){
+                JOptionPane.showMessageDialog(null,"Sign up Button clicked");
+            }
+        }catch(Exception E){
+            E.printStackTrace();
+        }
+    }
     public static void main(String[] args) {
         new Login();
     }
+
+   
+    
 }
