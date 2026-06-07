@@ -65,8 +65,17 @@ public class Login extends JFrame {
         buttonSingUp = new JButton("Sign Up ");
         buttonSingUp.setBackground(Color.BLACK);
         buttonSingUp.setForeground(Color.white);
-        buttonSingUp.setBounds(200, 300,200,50);
+        buttonSingUp.setFont(new Font("Arial",Font.BOLD,20));
+        buttonSingUp.setBounds(250, 300,150,50);
         add(buttonSingUp);
+        
+        // sign in button 
+        buttonClear = new JButton("Clear ");
+        buttonClear.setBackground(Color.BLACK);
+        buttonClear.setForeground(Color.white);
+        buttonClear.setFont(new Font("Arial",Font.BOLD,20));
+        buttonClear.setBounds(450,300,150,50);
+        add(buttonClear);
          
         // this is background
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
