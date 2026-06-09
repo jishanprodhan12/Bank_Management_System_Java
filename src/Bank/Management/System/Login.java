@@ -112,9 +112,14 @@ public class Login extends JFrame  implements ActionListener{
         try{
             if(e.getSource()==buttonSignIn){
                 JOptionPane.showMessageDialog(null , "Sign in button clicked");
+               String card = cardText.getText();
+               
+
             }
             else if (e.getSource()==buttonClear){
-                JOptionPane.showMessageDialog(null,"Clear button clicked ");
+                cardText.setText("");
+                pinText.setText("");
+                
             }
             else if (e.getSource()==buttonSingUp){
                 JOptionPane.showMessageDialog(null,"Sign up Button clicked");
