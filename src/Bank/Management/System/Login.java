@@ -122,7 +122,8 @@ public class Login extends JFrame  implements ActionListener{
                 
             }
             else if (e.getSource()==buttonSingUp){
-                JOptionPane.showMessageDialog(null,"Sign up Button clicked");
+                new Signup();
+                setVisible(false);
             }
         }catch(Exception E){
             E.printStackTrace();
