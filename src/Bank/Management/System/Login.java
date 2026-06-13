@@ -4,13 +4,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
-public class Login extends JFrame  implements ActionListener{
+import java.sql.ResultSet;
+public class Login extends JFrame implements ActionListener {
 
     JLabel label1, label2, label3;
     JTextField cardText;
     JPasswordField pinText;
-    JButton buttonSingUp ,buttonClear,buttonSignIn;
+    JButton buttonSingUp, buttonClear, buttonSignIn;
+
     Login() {
         // we use Supper keyword for Title 
         super("Bank Management System");
@@ -67,29 +68,29 @@ public class Login extends JFrame  implements ActionListener{
         buttonSingUp = new JButton("Sign Up ");
         buttonSingUp.setBackground(Color.BLACK);
         buttonSingUp.setForeground(Color.white);
-        buttonSingUp.setFont(new Font("Arial",Font.BOLD,20));
-        buttonSingUp.setBounds(250, 300,150,50);
+        buttonSingUp.setFont(new Font("Arial", Font.BOLD, 20));
+        buttonSingUp.setBounds(250, 300, 150, 50);
         buttonSingUp.addActionListener(this);
         add(buttonSingUp);
-        
+
         // Clear button 
         buttonClear = new JButton("Clear ");
         buttonClear.setBackground(Color.BLACK);
         buttonClear.setForeground(Color.white);
-        buttonClear.setFont(new Font("Arial",Font.BOLD,20));
-        buttonClear.setBounds(450,300,150,50);
+        buttonClear.setFont(new Font("Arial", Font.BOLD, 20));
+        buttonClear.setBounds(450, 300, 150, 50);
         buttonClear.addActionListener(this);
         add(buttonClear);
-        
-         // sign in button 
+
+        // sign in button 
         buttonSignIn = new JButton("Sign In ");
         buttonSignIn.setBackground(Color.BLACK);
         buttonSignIn.setForeground(Color.white);
-        buttonSignIn.setFont(new Font("Arial",Font.BOLD,20));
-        buttonSignIn.setBounds(350,370,150,50);
+        buttonSignIn.setFont(new Font("Arial", Font.BOLD, 20));
+        buttonSignIn.setBounds(350, 370, 150, 50);
         buttonSignIn.addActionListener(this);
         add(buttonSignIn);
-         
+
         // this is background
         ImageIcon iii1 = new ImageIcon(ClassLoader.getSystemResource("icon/backbg.png"));
         Image iii2 = iii1.getImage().getScaledInstance(850, 488, Image.SCALE_DEFAULT);
@@ -104,35 +105,41 @@ public class Login extends JFrame  implements ActionListener{
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-    }
-    // override actionPerformed Method 
-    @Override 
-    public void actionPerformed(ActionEvent e){
-        try{
-            if(e.getSource()==buttonSignIn){
-                JOptionPane.showMessageDialog(null , "Sign in button clicked");
-               String card = cardText.getText();
-               
 
-            }
-            else if (e.getSource()==buttonClear){
+    }
+
+    // override actionPerformed Method 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        try {
+            if (e.getSource() == buttonSignIn) {
+                Conn c = new Conn();
+                String cardno = cardText.getText();
+                String pin = pinText.getText();
+                String q = "select * from login where card_number = '" + cardno + "' and  pin = '" + pin + "'";
+                ResultSet resultSet = c.statement.executeQuery(q);
+                if (resultSet.next()) {
+                    setVisible(false);
+                    new Main_Class(pin);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
+                }
+
+            } else if (e.getSource() == buttonClear) {
                 cardText.setText("");
                 pinText.setText("");
-                
-            }
-            else if (e.getSource()==buttonSingUp){
+
+            } else if (e.getSource() == buttonSingUp) {
                 new Signup();
                 setVisible(false);
             }
-        }catch(Exception E){
+        } catch (Exception E) {
             E.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
         new Login();
     }
 
-   
-    
 }

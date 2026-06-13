@@ -223,8 +223,7 @@ public class Singup2 extends JFrame implements ActionListener {
 
                 ps.executeUpdate();
 
-                JOptionPane.showMessageDialog(null, "Data Saved Successfully!");
-//                new Signup3(formno);
+                new Signup3(formno);
                 setVisible(false);
             }
 
