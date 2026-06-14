@@ -120,7 +120,7 @@ public class Login extends JFrame implements ActionListener {
                 ResultSet resultSet = c.statement.executeQuery(q);
                 if (resultSet.next()) {
                     setVisible(false);
-                    new Main_Class(pin);
+                    new main_Class(pin);
                 } else {
                     JOptionPane.showMessageDialog(null, "Incorrect Card Number or PIN");
                 }
