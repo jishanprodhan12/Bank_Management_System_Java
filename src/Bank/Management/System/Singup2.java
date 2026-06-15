@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 public class Singup2 extends JFrame implements ActionListener {
 
     JComboBox comboBox, comboBox2, comboBox3, comboBox4, comboBox5;
-    JTextField textTin, textNid;
+    JTextField textPhone, textNid;
     JRadioButton r1, r2, e1, e2;
     JButton next;
     String formno;
@@ -100,15 +100,15 @@ public class Singup2 extends JFrame implements ActionListener {
         comboBox5.setBounds(350, 340, 320, 30);
         add(comboBox5);
 
-        JLabel l8 = new JLabel("TIN Number : ");
+        JLabel l8 = new JLabel("Phone Number : ");
         l8.setFont(new Font("Raleway", Font.BOLD, 18));
-        l8.setBounds(100, 390, 150, 30);
+        l8.setBounds(100, 390, 250, 30);
         add(l8);
 
-        textTin = new JTextField();
-        textTin.setFont(new Font("Raleway", Font.BOLD, 18));
-        textTin.setBounds(350, 390, 320, 30);
-        add(textTin);
+        textPhone = new JTextField();
+        textPhone.setFont(new Font("Raleway", Font.BOLD, 18));
+        textPhone.setBounds(350, 390, 320, 30);
+        add(textPhone);
 
         JLabel l9 = new JLabel("NID Number : ");
         l9.setFont(new Font("Raleway", Font.BOLD, 18));
@@ -187,7 +187,11 @@ public class Singup2 extends JFrame implements ActionListener {
         String edu = (String) comboBox4.getSelectedItem();
         String occ = (String) comboBox5.getSelectedItem();
 
-        String tin = textTin.getText();
+        String phone = textPhone.getText();
+        if (phone.length() != 11 ){
+            JOptionPane.showMessageDialog(null, "Enter a valid Phone number ");
+            return;
+        }
         String nid = textNid.getText();
 
         String scitizen = " ";
@@ -204,11 +208,11 @@ public class Singup2 extends JFrame implements ActionListener {
         }
 
         try {
-            if (textTin.getText().equals("") || textNid.getText().equals("")) {
+            if (textPhone.getText().equals("") || textNid.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Fill all the fields");
             } else {
                 Conn c = new Conn();
-                String sql = "INSERT INTO signuptwo (formno, religion, category, income, education, occupation, tin, nid, senior_citizen, existing_account) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                String sql = "INSERT INTO signuptwo (formno, religion, category, income, education, occupation, phone_number, nid, senior_citizen, existing_account) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement ps = c.connection.prepareStatement(sql);
                 ps.setString(1, formno);
                 ps.setString(2, rel);
@@ -216,7 +220,7 @@ public class Singup2 extends JFrame implements ActionListener {
                 ps.setString(4, inc);
                 ps.setString(5, edu);
                 ps.setString(6, occ);
-                ps.setString(7, tin);
+                ps.setString(7, phone);
                 ps.setString(8, nid);
                 ps.setString(9, scitizen);
                 ps.setString(10, eAccount);
