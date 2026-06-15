@@ -23,7 +23,7 @@ public class Withdrawl extends JFrame implements ActionListener {
         l3.setBounds(0, 0, 1550, 830);
         add(l3);
 
-        JLabel label1 = new JLabel("MAXIMUM WITHDRAWAL IS 10,000 BDT");
+        JLabel label1 = new JLabel("MAXIMUM WITHDRAWAL IS 50,000 BDT");
         label1.setForeground(Color.WHITE);
         label1.setFont(new Font("System", Font.BOLD, 16));
         label1.setBounds(460, 180, 700, 35);
@@ -81,8 +81,8 @@ public class Withdrawl extends JFrame implements ActionListener {
                             balance -= Integer.parseInt(resultSet.getString("amount"));
                         }
                     }
-                    if (Integer.parseInt(amount) > 10000) {
-                        JOptionPane.showMessageDialog(null, "Maximum Withdrawl limit is 10000");
+                    if (Integer.parseInt(amount) > 50000) {
+                        JOptionPane.showMessageDialog(null, "Maximum Withdrawl limit is 50000");
                         return;
                     }
                     if (balance < Integer.parseInt(amount)) {

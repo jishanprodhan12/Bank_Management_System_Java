@@ -19,14 +19,6 @@ public class mini extends JFrame {
         setLocation(300, 15);
         setLayout(null);
         getContentPane().setBackground(Color.WHITE);
-
-        // this is bank icon 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icon/bank.png"));
-        Image i2 = i1.getImage().getScaledInstance(75, 75, Image.SCALE_SMOOTH);
-        ImageIcon i3 = new ImageIcon(i2);
-        JLabel image = new JLabel(i3);
-        image.setBounds(30, 10, 75, 75);
-        add(image);
         
         // this is card icon
         ImageIcon ii1 = new ImageIcon(ClassLoader.getSystemResource("icon/card.png"));
