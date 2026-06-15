@@ -135,6 +135,9 @@ public class Singup2 extends JFrame implements ActionListener {
         r2.setBackground(new Color(222, 250, 217));
         r2.setBounds(460, 490, 100, 30);
         add(r2);
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(r1);
+        buttonGroup.add(r2);
 
         JLabel l11 = new JLabel("Existing Account : ");
         l11.setFont(new Font("Raleway", Font.BOLD, 18));
@@ -151,7 +154,9 @@ public class Singup2 extends JFrame implements ActionListener {
         e2.setBackground(new Color(222, 250, 217));
         e2.setBounds(460, 540, 100, 30);
         add(e2);
-
+        ButtonGroup buttonGroup2 = new ButtonGroup();
+        buttonGroup2.add(r1);
+        buttonGroup2.add(r2);
         JLabel l12 = new JLabel("Form No : ");
         l12.setFont(new Font("Raleway", Font.BOLD, 14));
         l12.setBounds(700, 10, 100, 30);
@@ -171,7 +176,7 @@ public class Singup2 extends JFrame implements ActionListener {
         add(next);
 
         setLayout(null);
-        
+
         setSize(850, 680);
         setLocation(250, 10);
         getContentPane().setBackground(new Color(222, 250, 217));
@@ -188,7 +193,7 @@ public class Singup2 extends JFrame implements ActionListener {
         String occ = (String) comboBox5.getSelectedItem();
 
         String phone = textPhone.getText();
-        if (phone.length() != 11 ){
+        if (phone.length() != 11) {
             JOptionPane.showMessageDialog(null, "Enter a valid Phone number ");
             return;
         }
