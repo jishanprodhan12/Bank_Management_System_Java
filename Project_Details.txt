@@ -1,0 +1,85 @@
+Bank Management System - Project Summary
+======================================
+
+Project Name:
+Bank Management System
+
+Project Type:
+A Java Swing desktop application that simulates a basic banking and ATM system.
+
+Project Purpose:
+This project is designed to let users register for a bank account, log in securely, and perform common banking tasks such as deposits, withdrawals, fast cash withdrawals, balance inquiries, PIN changes, mini statements, and account closure.
+
+Languages Used:
+- Java
+- SQL (MySQL)
+
+Libraries and Technologies Used:
+- Swing (javax.swing.*) for the graphical user interface
+- AWT (java.awt.*) for layout, colors, fonts, and window handling
+- JDBC (java.sql.*) for database connection and operations
+- MySQL Database for storing user and transaction data
+- com.toedter.calendar.JDateChooser for date selection in the signup form
+
+Main Features:
+1. User Registration
+   - Multi-step signup process
+   - Collects personal details, family information, address, and account preferences
+   - Generates a form number, card number, and PIN
+
+2. User Login
+   - Login using card number and PIN
+   - Validates user credentials from the database
+
+3. Banking Transactions
+   - Deposit money into the account
+   - Withdraw cash from the account
+   - Fast cash withdrawal with predefined amounts
+   - Balance inquiry
+   - PIN change
+
+4. Mini Statement
+   - Shows recent transaction history
+   - Displays date, time, transaction type, and amount
+   - Supports transaction deletion and refresh
+
+5. Account Management
+   - Close account option with confirmation steps
+   - Deletes related account and transaction data from the database
+
+6. Database-Backed Operations
+   - All registration and transaction data is stored in MySQL
+   - The application connects to a local MySQL server using JDBC
+
+Key Java Classes in the Project:
+- Login.java : Main login screen
+- Signup.java : First registration page
+- Singup2.java : Additional account details page
+- Signup3.java : Account details and card/PIN generation page
+- Deposit.java : Deposit money screen
+- Withdrawl.java : Cash withdrawal screen
+- FastCash.java : Quick withdrawal options
+- BalanceEnquriy.java : Current balance checking screen
+- Pin.java : PIN change screen
+- CloseAccount.java : Account closure screen
+- mini.java : Mini statement and transaction history screen
+- main_Class.java : Main ATM transaction menu
+- Conn.java : Database connection class
+
+Database Details:
+- Database Name: banksystem
+- JDBC URL: jdbc:mysql://localhost:3306/banksystem
+- Database User: root
+- Password: empty string
+
+Tables Used:
+- signup : Stores personal details from registration page 1
+- signuptwo : Stores additional details from registration page 2
+- signupthree : Stores account type, card number, PIN, and services
+- login : Stores card number and PIN for login authentication
+- bank : Stores deposit and withdrawal transactions
+
+Notes:
+- This is a beginner-friendly desktop banking project.
+- The application uses direct SQL statements for CRUD operations.
+- The project is not a full-scale banking system, but a practical learning project for Java GUI and database integration.
