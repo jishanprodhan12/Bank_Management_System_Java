@@ -1,0 +1,73 @@
+MySQL Backend Script for Bank Management System
+=============================================
+
+This script creates the database and all tables used by the Java project.
+The application connects to the database named banksystem.
+
+-- Create database
+CREATE DATABASE IF NOT EXISTS banksystem;
+USE banksystem;
+
+-- Table 1: signup
+-- Stores the first-page personal information during registration
+CREATE TABLE IF NOT EXISTS signup (
+    formno VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    fname VARCHAR(100),
+    dob VARCHAR(50),
+    gender VARCHAR(20),
+    email VARCHAR(100),
+    marital VARCHAR(30),
+    address VARCHAR(255),
+    city VARCHAR(100),
+    pincode VARCHAR(20),
+    state VARCHAR(100)
+);
+
+-- Table 2: signuptwo
+-- Stores the second-page additional application details
+CREATE TABLE IF NOT EXISTS signuptwo (
+    formno VARCHAR(20) PRIMARY KEY,
+    religion VARCHAR(50),
+    category VARCHAR(50),
+    income VARCHAR(50),
+    education VARCHAR(100),
+    occupation VARCHAR(100),
+    phone_number VARCHAR(20),
+    nid VARCHAR(50),
+    senior_citizen VARCHAR(10),
+    existing_account VARCHAR(10)
+);
+
+-- Table 3: signupthree
+-- Stores account details generated during registration
+CREATE TABLE IF NOT EXISTS signupthree (
+    formno VARCHAR(20) PRIMARY KEY,
+    account_type VARCHAR(100),
+    card_number VARCHAR(20),
+    pin VARCHAR(10),
+    facilities VARCHAR(255)
+);
+
+-- Table 4: login
+-- Stores card number and PIN for user authentication
+CREATE TABLE IF NOT EXISTS login (
+    formno VARCHAR(20),
+    card_number VARCHAR(20),
+    pin VARCHAR(10)
+);
+
+-- Table 5: bank
+-- Stores all deposit and withdrawal transactions
+CREATE TABLE IF NOT EXISTS bank (
+    pin VARCHAR(10),
+    date DATETIME,
+    type VARCHAR(20),
+    amount VARCHAR(20)
+);
+
+-- Optional: Add indexes for faster lookup
+ALTER TABLE login ADD INDEX idx_login_card_pin (card_number, pin);
+ALTER TABLE bank ADD INDEX idx_bank_pin (pin);
+
+-- End of database script
