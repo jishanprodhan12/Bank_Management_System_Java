@@ -184,6 +184,5 @@ Java Developer | Web Developer | Software Enthusiast
 ---
 
 ## video link :
-https://drive.google.com/file/d/1Pw3pXC7SB-UoChJLfptUA4Fh3y_Ws6
-Pk/view?usp=drivesdk
+https://drive.google.com/file/d/1Pw3pXC7SB-UoChJLfptUA4Fh3y_Ws6Pk/view?usp=drivesdk
 
